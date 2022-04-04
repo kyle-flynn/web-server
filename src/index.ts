@@ -40,9 +40,10 @@ if (MODE === 'production') {
   const certFile = process.env.SSL_CERT || '';
   const caFile = process.env.SSL_CHAIN || '';
 
-  const key = readFileSync(join(__dirname, keyFile));
-  const cert = readFileSync(join(__dirname, certFile));
-  const ca = readFileSync(join(__dirname, caFile));
+  // All SSL env variables must be absolute pathing
+  const key = readFileSync(keyFile);
+  const cert = readFileSync(certFile);
+  const ca = readFileSync(caFile);
 
   const appHttps = https.createServer({ key, cert, ca }, app);
   appHttps.listen(HTTPS_PORT, () =>
