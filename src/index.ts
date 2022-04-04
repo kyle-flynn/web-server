@@ -25,8 +25,8 @@ app.use(helmet());
 app.use(compression());
 app.use(json());
 
-// Remember that __dirname is one directory level down than the current one.
-app.use(express.static(join(__dirname, DIRECTORY)));
+// DIRECTORY is also absolute
+app.use(express.static(DIRECTORY));
 
 app.listen({ port: PORT }, () => {
   console.log(
