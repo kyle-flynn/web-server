@@ -15,7 +15,7 @@ const PORT = process.env.PORT;
 const HOST = process.env.HOST;
 const MODE = process.env.NODE_ENV;
 const NAME = process.env.NAME;
-const DIRECTORY = process.env.DIR || 'public';
+const DIRECTORY = process.env.DIR || '../public';
 const HTTPS_PORT = process.env.SSL_PORT || 443;
 
 /* Initialize and setup express/middleware */
