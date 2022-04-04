@@ -4,6 +4,7 @@
   "description": "Basic HTTP/HTTPS server for static asset handling using Node.js",
   "main": "index.js",
   "scripts": {
+    "build": "tsc",
     "start": "tsc && node build/index.js"
   },
   "repository": {
