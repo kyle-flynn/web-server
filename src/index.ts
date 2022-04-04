@@ -38,11 +38,13 @@ app.listen({ port: PORT }, () => {
 if (MODE === 'production') {
   const keyFile = process.env.SSL_KEY || '';
   const certFile = process.env.SSL_CERT || '';
+  const caFile = process.env.SSL_CHAIN || '';
 
   const key = readFileSync(join(__dirname, keyFile));
   const cert = readFileSync(join(__dirname, certFile));
+  const ca = readFileSync(join(__dirname, caFile));
 
-  const appHttps = https.createServer({ key, cert }, app);
+  const appHttps = https.createServer({ key, cert, ca }, app);
   appHttps.listen(HTTPS_PORT, () =>
     console.log(
       `[HTTPS] ${NAME} serving ${DIRECTORY} at ${HOST}:${HTTPS_PORT} in ${MODE} mode.`
